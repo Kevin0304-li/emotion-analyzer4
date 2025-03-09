@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SentiMind - Context-Aware Sentiment Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1 class="logo">SentiMind</h1>
+            </div>
+            <div class="sidebar-content">
+                <button id="new-chat" class="new-chat-btn">
+                    <i class="fas fa-plus"></i> New Analysis
+                </button>
+                <nav class="sidebar-nav">
+                    <ul>
+                        <li class="active"><i class="fas fa-comment-alt"></i> Sentiment Analysis</li>
+                        <li><i class="fas fa-chart-bar"></i> Emotion Dashboard</li>
+                        <li><i class="fas fa-book"></i> Documentation</li>
+                        <li><i class="fas fa-info-circle"></i> About</li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <img src="{{ url_for('static', filename='img/user-avatar.png') }}" alt="User Avatar" class="user-avatar">
+                    <span>User</span>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+                <div class="model-info">
+                    <h2>Context-Aware Sentiment Analysis</h2>
+                    <span class="model-badge">BERT+</span>
+                </div>
+                <div class="header-actions">
+                    <button class="theme-toggle" id="theme-toggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button class="settings-btn">
+                        <i class="fas fa-cog"></i>
+                    </button>
+                </div>
+            </header>
+
+            <div class="chat-container">
+                <div class="messages" id="message-container">
+                    <div class="message system">
+                        <div class="message-content">
+                            <p>Welcome to SentiMind, a context-aware sentiment analysis model that understands the emotional nuances of text beyond just the words.</p>
+                            <p>Try entering a sentence like "<strong>I will kill you!</strong>" versus "<strong>I will kill you, haha, just kidding my friend.</strong>" to see how context changes the emotional interpretation.</p>
+                        </div>
+                    </div>
+                    <!-- Messages will be added here dynamically -->
+                </div>
+
+                <div class="input-area">
+                    <form id="analysis-form">
+                        <div class="input-container">
+                            <textarea id="user-input" placeholder="Enter text to analyze..." rows="1"></textarea>
+                            <button type="submit" id="send-btn" class="send-btn">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </form>
+                    <div class="disclaimer">
+                        SentiMind can make mistakes. Consider checking important information.
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div id="emotion-panel" class="emotion-panel">
+            <div class="panel-header">
+                <h3>Emotion Analysis</h3>
+                <button id="close-panel" class="close-panel">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="panel-content">
+                <div id="emotion-chart-container">
+                    <canvas id="emotion-chart"></canvas>
+                </div>
+                <div id="emotion-details">
+                    <div class="emotion-item">
+                        <span class="emotion-label">Primary Emotion:</span>
+                        <span id="primary-emotion" class="emotion-value">-</span>
+                    </div>
+                    <div class="emotion-item">
+                        <span class="emotion-label">Confidence:</span>
+                        <span id="confidence-score" class="emotion-value">-</span>
+                    </div>
+                    <div class="emotion-breakdown">
+                        <h4>Emotion Breakdown</h4>
+                        <div id="emotion-scores"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html> 

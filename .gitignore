@@ -1,0 +1,35 @@
+# Ignore the problematic directory
+emotion-analyzer4/
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Large data files and models
+full_dataset/
+model_output/
+processed_data/
+*.png
+*.pth
+*.csv
+
+# Virtual environments
+venv/
+env/
+.env/
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS specific files
+.DS_Store
+Thumbs.db 

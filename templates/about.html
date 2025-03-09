@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About SentiMind - Context-Aware Sentiment Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1 class="logo">SentiMind</h1>
+            </div>
+            <div class="sidebar-content">
+                <button id="new-chat" class="new-chat-btn" onclick="window.location.href='/'">
+                    <i class="fas fa-plus"></i> New Analysis
+                </button>
+                <nav class="sidebar-nav">
+                    <ul>
+                        <li onclick="window.location.href='/'"><i class="fas fa-comment-alt"></i> Sentiment Analysis</li>
+                        <li><i class="fas fa-chart-bar"></i> Emotion Dashboard</li>
+                        <li><i class="fas fa-book"></i> Documentation</li>
+                        <li class="active"><i class="fas fa-info-circle"></i> About</li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <img src="{{ url_for('static', filename='img/user-avatar.png') }}" alt="User Avatar" class="user-avatar">
+                    <span>User</span>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+                <div class="model-info">
+                    <h2>About SentiMind</h2>
+                    <span class="model-badge">BERT+</span>
+                </div>
+                <div class="header-actions">
+                    <button class="theme-toggle" id="theme-toggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button class="settings-btn">
+                        <i class="fas fa-cog"></i>
+                    </button>
+                </div>
+            </header>
+
+            <div class="about-container">
+                <section class="about-section">
+                    <h3>What Makes SentiMind Different?</h3>
+                    <p>SentiMind is a context-aware sentiment analysis model that goes beyond traditional sentiment analysis by considering three key aspects:</p>
+                    <div class="feature-cards">
+                        <div class="feature-card">
+                            <div class="feature-icon"><i class="fas fa-brain"></i></div>
+                            <h4>Semantic Understanding</h4>
+                            <p>Analyzes the literal meaning of the words and phrases using advanced BERT embeddings.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon"><i class="fas fa-map"></i></div>
+                            <h4>Contextual Awareness</h4>
+                            <p>Considers the broader context in which language appears, recognizing that identical phrases can mean different things in different contexts.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon"><i class="fas fa-heart"></i></div>
+                            <h4>Reaction Modeling</h4>
+                            <p>Models potential human reactions to the text, capturing the emotional impact beyond just the words themselves.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="about-section">
+                    <h3>Technical Approach</h3>
+                    <p>SentiMind uses a sophisticated transformer-based architecture based on BERT with custom extensions:</p>
+                    <ul class="technical-list">
+                        <li><strong>Base Model:</strong> Fine-tuned BERT architecture for text understanding</li>
+                        <li><strong>Custom Layers:</strong> Specialized semantic, context, and reaction layers</li>
+                        <li><strong>Training:</strong> Cross-validation with regularization to prevent overfitting</li>
+                        <li><strong>Fine-Tuning:</strong> Trained on a combination of GoEmotions dataset and custom annotated data</li>
+                    </ul>
+                </section>
+
+                <section class="about-section">
+                    <h3>Example: Context Changes Everything</h3>
+                    <p>Consider the phrase "I will kill you!" This could be:</p>
+                    <div class="example-box">
+                        <div class="example-scenario">
+                            <h4>Scenario 1: Between strangers</h4>
+                            <p class="example-text">"I will kill you!"</p>
+                            <p class="example-result">Likely interpreted as a threat → <span class="emotion anger">Anger/Fear</span></p>
+                        </div>
+                        <div class="example-scenario">
+                            <h4>Scenario 2: Between friends joking</h4>
+                            <p class="example-text">"I will kill you, haha, just kidding my friend!"</p>
+                            <p class="example-result">Likely interpreted as playful → <span class="emotion joy">Joy/Amusement</span></p>
+                        </div>
+                    </div>
+                    <p>SentiMind understands these nuances that traditional sentiment analysis models miss.</p>
+                </section>
+
+                <section class="about-section">
+                    <h3>Emotion Classifications</h3>
+                    <p>SentiMind recognizes several primary emotions:</p>
+                    <div class="emotion-grid">
+                        <div class="emotion-item"><span class="emotion joy">Joy</span></div>
+                        <div class="emotion-item"><span class="emotion sadness">Sadness</span></div>
+                        <div class="emotion-item"><span class="emotion anger">Anger</span></div>
+                        <div class="emotion-item"><span class="emotion fear">Fear</span></div>
+                        <div class="emotion-item"><span class="emotion surprise">Surprise</span></div>
+                        <div class="emotion-item"><span class="emotion disgust">Disgust</span></div>
+                        <div class="emotion-item"><span class="emotion trust">Trust</span></div>
+                        <div class="emotion-item"><span class="emotion anticipation">Anticipation</span></div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html> 
